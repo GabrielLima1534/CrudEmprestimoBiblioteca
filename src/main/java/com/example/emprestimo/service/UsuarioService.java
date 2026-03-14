@@ -30,5 +30,15 @@ public class UsuarioService {
 	public Usuario buscarPorId(Long id) {
 	    return usuarioRepository.findById(id).orElse(null);
 	}
+	
+	public Usuario atualizar(Long id, Usuario usuarioAtualizado) {
+	    Usuario usuarioExistente = buscarPorId(id);
+	    if (usuarioExistente != null) {
+	        usuarioExistente.setNome(usuarioAtualizado.getNome());
+	        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+	        return usuarioRepository.save(usuarioExistente);
+	    }
+	    return null;
+	}
 
 }
