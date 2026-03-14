@@ -38,6 +38,16 @@ public class EmprestimoController {
         return emprestimoService.listarTodos();
     }
 
+    @GetMapping("/usuario/{usuarioId}")
+    public List<Emprestimo> listarPorUsuario(@PathVariable Long usuarioId) {
+        return emprestimoService.listarPorUsuario(usuarioId);
+    }
+    
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        emprestimoService.excluir(id);
+    }
+        
  
     
 

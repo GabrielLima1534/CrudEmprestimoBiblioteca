@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +26,8 @@ public class CarteiraBiblioteca {
     private boolean isValid;
 
     @OneToOne
+    @JsonIgnore
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     
     public void setUsuario(Usuario usuario) {

@@ -50,5 +50,13 @@ public class EmprestimoService {
     public List<Emprestimo> listarTodos() {
         return emprestimoRepository.findAll();
     }
+    
+    public List<Emprestimo> listarPorUsuario(Long usuarioId) {
+        return emprestimoRepository.findByUsuarioId(usuarioId);
+    }
+    
+    public void excluir(Long id) {
+        emprestimoRepository.deleteById(id);
+    }
 
 }

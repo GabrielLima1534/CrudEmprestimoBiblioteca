@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @AllArgsConstructor
 
@@ -23,6 +25,8 @@ public class Emprestimo {
     private Date dataDevolucao;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    @JsonIgnore
     private Usuario usuario;
     
     public Usuario getUsuario() {

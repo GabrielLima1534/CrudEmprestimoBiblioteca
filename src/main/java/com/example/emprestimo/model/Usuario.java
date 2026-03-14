@@ -25,7 +25,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Emprestimo> emprestimos;
 
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private CarteiraBiblioteca carteiraBiblioteca;
 
 	public Long getId() {
